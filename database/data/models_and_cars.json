@@ -1,0 +1,94 @@
+[
+  {
+    "modelId": "ac5c3b18-6804-4e34-ac19-cf3d693f5cdf",
+    "co2Emmissions": 124,
+    "mpg": "54.3",
+    "enginePower": 69,
+    "engineSize": 1229,
+    "fuelType": "Petrol",
+    "cars": [
+        {
+          "id": "00000001",
+          "modelId": "ac5c3b18-6804-4e34-ac19-cf3d693f5cdf",
+          "mileage": 25000,
+          "registration": "PS128DE",
+          "transmission": "Manual",
+          "owners": 1,
+          "description": "<title>Car advert</title><h1>Car ad title</h1><p>Lorem ipsum dolor</p>",
+          "price": 13250,
+          "photos": [
+            "http://www.someurl.com/00000001/image0001.jpg",
+            "http://www.someurl.com/00000001/image0002.jpg",
+            "http://www.someurl.com/00000001/image0003.jpg"
+          ]
+        }
+    ]
+  },
+  {
+    "modelId": "7ee87de1-a30f-4666-9741-726c9facbba7",
+    "co2Emmissions": 230,
+    "mpg": "54.3",
+    "enginePower": 185,
+    "engineSize": 2259,
+    "fuelType": "Petrol",
+    "cars": [
+        {
+          "id": "00000002",
+          "modelId": "7ee87de1-a30f-4666-9741-726c9facbba7",
+          "mileage": 95000,
+          "registration": "LS05DTR",
+          "transmission": "Manual",
+          "owners": 2,
+          "description": "<title>Car advert</title><h1>Car ad title</h1><p>Lorem ipsum dolor</p>",
+          "price": 6000,
+          "photos": [
+            "http://www.someurl.com/00000002/image0001.jpg",
+            "http://www.someurl.com/00000002/image0002.jpg",
+            "http://www.someurl.com/00000002/image0003.jpg"
+          ]
+        }
+    ]
+
+  },
+  {
+    "modelId": "5905c84b-4a70-47c9-be56-e814553b3015",
+    "co2Emmissions": 165,
+    "mpg": "54.3",
+    "enginePower": 130,
+    "engineSize": 1798,
+    "fuelType": "Diesel",
+    "cars": [
+       {
+          "id": "00000003",
+          "modelId": "5905c84b-4a70-47c9-be56-e814553b3015",
+          "mileage": 12000,
+          "registration": "LD58UBQ",
+          "transmission": "Manual",
+          "owners": 1,
+          "description": "<title>Car advert</title><h1>Car ad title</h1><p>Lorem ipsum dolor</p>",
+          "price": 18000,
+          "photos": [
+            "http://www.someurl.com/00000003/image0001.jpg",
+            "http://www.someurl.com/00000003/image0002.jpg",
+            "http://www.someurl.com/00000003/image0003.jpg"
+          ]
+        },
+        {
+          "id": "00000004",
+          "modelId": "5905c84b-4a70-47c9-be56-e814553b3015",
+          "mileage": 45000,
+          "registration": "LD58UBQ",
+          "transmission": "Automatic",
+          "owners": 2,
+          "description": "<title>Car advert</title><h1>Car ad title</h1><p>Lorem ipsum dolor</p>",
+          "price": 12000,
+          "photos": [
+            "http://www.someurl.com/00000004/image0001.jpg",
+            "http://www.someurl.com/00000004/image0002.jpg",
+            "http://www.someurl.com/00000004/image0003.jpg"
+          ]
+        }      
+    ]
+  }
+]
+
