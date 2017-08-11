@@ -27,5 +27,11 @@ class AppServiceProvider extends ServiceProvider
              'App\Repositories\CarModelsRepositoryInterface',
              'App\Repositories\CarModelsJsonRepository'
         );
+
+        $this->app->bind('App\Repositories\JsonDataSource', 
+            function($app) {
+                return new \App\Repositories\JsonDataSource('../database/data/models_and_cars.json');
+            }
+        );
     }
 }

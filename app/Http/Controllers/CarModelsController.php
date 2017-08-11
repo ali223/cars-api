@@ -23,7 +23,7 @@ class CarModelsController extends Controller
 			return $this->carModelsRepository->getAllCarModelsByFuelType($fuelType);
 		}
 	
-		return $carModelsRepository->getAllCarModels();
+		return $this->carModelsRepository->getAllCarModels();
 
     }
 }
