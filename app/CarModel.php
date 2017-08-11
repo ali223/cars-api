@@ -3,6 +3,7 @@
 namespace App;
 
 use JsonSerializable;
+use Illuminate\Support\Collection;
 
 class CarModel implements JsonSerializable
 {
@@ -79,7 +80,7 @@ class CarModel implements JsonSerializable
 		return $this->cars;
 	}
 
-	public function setCars(Array $cars)
+	public function setCars(Collection $cars)
 	{
 		$this->cars = $cars;
 	}

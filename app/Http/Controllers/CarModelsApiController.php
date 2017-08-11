@@ -21,6 +21,8 @@ class CarModelsApiController extends Controller
     {
    		if($fuelType = request()->get('fuelType')) {
 			return $this->carModelsRepository->getAllCarModelsByFuelType($fuelType);
+		} elseif($transmission = request()->get('transmission')) {
+			return $this->carModelsRepository->getAllCarModelsByTransmission($transmission);
 		}
 	
 		return $this->carModelsRepository->getAllCarModels();

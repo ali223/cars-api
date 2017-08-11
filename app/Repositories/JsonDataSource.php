@@ -22,11 +22,12 @@ class JsonDataSource implements DataSourceInterface
 
 		$phpData = json_decode($jsonData);
 
-		return $this->transformDataIntoCarModelsArray($phpData);
-	
+		$collection = $this->transformDataIntoCarModelsCollection($phpData);
+					
+		return $collection;
 	}	
 
-	private function transformDataIntoCarModelsArray($phpData)
+	private function transformDataIntoCarModelsCollection($phpData)
 	{
 
 		$carModels = [];
@@ -40,17 +41,17 @@ class JsonDataSource implements DataSourceInterface
 			$carModel->setEngineSize($object->engineSize);
 			$carModel->setFuelType($object->fuelType);				
 
-			$cars = $this->transformDataIntoCarsArray($object->cars);
+			$cars = $this->transformDataIntoCarsCollection($object->cars);
 
 			$carModel->setCars($cars);
 
 			$carModels[] =$carModel;
 		}
 
-		return $carModels;
+		return collect($carModels);
 	}
 
-	private function transformDataIntoCarsArray($carsData)
+	private function transformDataIntoCarsCollection($carsData)
 	{
 		$cars = [];
 
@@ -69,7 +70,7 @@ class JsonDataSource implements DataSourceInterface
 			$cars[] = $car;
 		}
 
-		return $cars;
+		return collect($cars);
 
 	}
 }
