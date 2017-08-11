@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\CarModelsJsonRepository;
+use App\Repositories\CarModelsRepositoryInterface;
+
 
 class CarModelsController extends Controller
 {
@@ -11,7 +12,7 @@ class CarModelsController extends Controller
 	protected $carModelsRepository;
 
 	public function __construct(
-		CarModelsJsonRepository $carModelsRepository)
+		CarModelsRepositoryInterface $carModelsRepository)
 	{
 		$this->carModelsRepository = $carModelsRepository;
 	}

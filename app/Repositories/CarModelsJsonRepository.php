@@ -6,7 +6,7 @@ use App\Car;
 use App\CarModel;
 use Illuminate\Support\Collection;
 
-class CarModelsJsonRepository
+class CarModelsJsonRepository implements CarModelsRepositoryInterface
 {
 	public function getAllCarModels()
 	{
