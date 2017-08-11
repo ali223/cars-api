@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Repositories\CarModelsRepositoryInterface;
 
 
-class CarModelsController extends Controller
+class CarModelsApiController extends Controller
 {
 
 	protected $carModelsRepository;
