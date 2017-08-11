@@ -10,7 +10,7 @@ class CarModelFilters
 	{
 		return $carModelsCollection->filter(
 			function ($carModel) use ($fuelType){
-				return $carModel->getFuelType() === ucfirst($fuelType);
+				return strtolower($carModel->getFuelType()) == strtolower($fuelType);
 		})->values();
 	} 
 
@@ -21,7 +21,7 @@ class CarModelFilters
 				$filteredCars = $carModel->getCars()->filter(
 					function ($car) use ($transmission){
 						
-						return $car->getTransmission() == ucfirst($transmission);
+						return strtolower($car->getTransmission()) == strtolower($transmission);
 					});	
 
 				if(!$filteredCars->count()) {
