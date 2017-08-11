@@ -19,7 +19,22 @@ class CarModelsApiController extends Controller
 
     public function index()
     {
-		$filters = [];
+		$filters = $this->createFilters();
+
+		$carModelsCollection = $this->carModelsRepository
+					->getAllCarModelsByFilters($filters);
+
+		if(! $carModelsCollection->count()) {
+			return response(['message' => 'No Records Found'], 404); 
+		}
+
+		return $carModelsCollection;
+
+    }
+
+    private function createFilters()
+    {
+    	$filters = [];
 
 		if($fuelType = request()->get('fueltype')) {
 			$filters['FuelType'] = $fuelType;
@@ -37,14 +52,7 @@ class CarModelsApiController extends Controller
 			$filters['MinPrice'] = $minPrice;	
 		}
 
-		$carModelsCollection = $this->carModelsRepository
-					->getAllCarModelsByFilters($filters);
-
-		if(! $carModelsCollection->count()) {
-			return response(['message' => 'No Records Found'], 404); 
-		}
-
-		return $carModelsCollection;
+		return $filters;
 
     }
 }
