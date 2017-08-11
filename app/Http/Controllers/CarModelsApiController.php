@@ -19,13 +19,24 @@ class CarModelsApiController extends Controller
 
     public function index()
     {
-   		if($fuelType = request()->get('fuelType')) {
-			return $this->carModelsRepository->getAllCarModelsByFuelType($fuelType);
-		} elseif($transmission = request()->get('transmission')) {
-			return $this->carModelsRepository->getAllCarModelsByTransmission($transmission);
+		$filters = [];
+
+		if($fuelType = request()->get('fuelType')) {
+			$filters['FuelType'] = $fuelType;
 		}
-	
-		return $this->carModelsRepository->getAllCarModels();
+
+		if($transmission = request()->get('transmission')) {
+			$filters['Transmission'] = $transmission;	
+		}
+
+		$carModelsCollection = $this->carModelsRepository
+					->getAllCarModelsByFilters($filters);
+
+		if(! $carModelsCollection->count()) {
+			return response(['message' => 'No Records Found'], 404); 
+		}
+
+		return $carModelsCollection;
 
     }
 }

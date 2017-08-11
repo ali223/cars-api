@@ -25,30 +25,18 @@ class CarModelsJsonRepository implements CarModelsRepositoryInterface
 		return $this->carModelsCollection;
 	}
 
-	public function getAllCarModelsByFuelType($fuelType = '')
+	public function getAllCarModelsByFilters($filters = []) 
 	{
+		$filteredCollection = $this->carModelsCollection;
 
-		$filteredCollection = $this->carModelFilters->filterByFuelType($this->carModelsCollection, $fuelType);
+		foreach($filters as $filterType => $filterData) {
 
-		if(! $filteredCollection->count()) {
-			return response(['message' => 'No Records Found'], 404);
+			$filterName = "filterBy{$filterType}";
+
+			$filteredCollection = $this->carModelFilters->$filterName($filteredCollection, $filterData);
 		}
 
 		return $filteredCollection;
-
-	}
-
-	public function getAllCarModelsByTransmission($transmission = '')
-	{
-
-		$filteredCollection =  $this->carModelFilters->filterByTransmission($this->carModelsCollection, $transmission);
-
-		if(! $filteredCollection->count()) {
-			return response(['message' => 'No Records Found'], 404);
-		}
-
-		return $filteredCollection;
-
 	}
 
 
