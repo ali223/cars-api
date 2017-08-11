@@ -21,13 +21,18 @@ class CarModelsApiController extends Controller
     {
 		$filters = [];
 
-		if($fuelType = request()->get('fuelType')) {
+		if($fuelType = request()->get('fueltype')) {
 			$filters['FuelType'] = $fuelType;
 		}
 
 		if($transmission = request()->get('transmission')) {
 			$filters['Transmission'] = $transmission;	
 		}
+
+		if($maxPrice = request()->get('maxprice')) {
+			$filters['MaxPrice'] = $maxPrice;	
+		}
+
 
 		$carModelsCollection = $this->carModelsRepository
 					->getAllCarModelsByFilters($filters);
