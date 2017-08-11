@@ -6,7 +6,7 @@ use File;
 use App\Car;
 use App\CarModel;
 
-class JsonDataSource
+class JsonDataSource implements DataSourceInterface
 {
 	private $jsonFileName;
 
@@ -22,11 +22,11 @@ class JsonDataSource
 
 		$phpData = json_decode($jsonData);
 
-		return $this->transformDataIntoCarModels($phpData);
+		return $this->transformDataIntoCarModelsArray($phpData);
 	
 	}	
 
-	private function transformDataIntoCarModels($phpData)
+	private function transformDataIntoCarModelsArray($phpData)
 	{
 
 		$carModels = [];
@@ -40,7 +40,7 @@ class JsonDataSource
 			$carModel->setEngineSize($object->engineSize);
 			$carModel->setFuelType($object->fuelType);				
 
-			$cars = $this->transformDataIntoCars($object->cars);
+			$cars = $this->transformDataIntoCarsArray($object->cars);
 
 			$carModel->setCars($cars);
 
@@ -50,7 +50,7 @@ class JsonDataSource
 		return $carModels;
 	}
 
-	private function transformDataIntoCars($carsData)
+	private function transformDataIntoCarsArray($carsData)
 	{
 		$cars = [];
 

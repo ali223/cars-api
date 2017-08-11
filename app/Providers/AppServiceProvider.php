@@ -33,5 +33,12 @@ class AppServiceProvider extends ServiceProvider
                 return new \App\Repositories\JsonDataSource('../database/data/models_and_cars.json');
             }
         );
+
+        $this->app->bind('App\Repositories\DataSourceInterface',
+            function($app) {
+                return $app->make('App\Repositories\JsonDataSource');
+            }
+        );
+
     }
 }

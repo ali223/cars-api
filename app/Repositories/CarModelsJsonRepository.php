@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Car;
 use App\CarModel;
-use App\Repositories\JsonDataSource;
+use App\Repositories\DataSource;
 use Illuminate\Support\Collection;
 
 class CarModelsJsonRepository implements CarModelsRepositoryInterface
@@ -12,7 +12,7 @@ class CarModelsJsonRepository implements CarModelsRepositoryInterface
 
 	protected $dataSource;
 
-	public function __construct(JsonDataSource $dataSource)
+	public function __construct(DataSourceInterface $dataSource)
 	{
 		$this->dataSource = $dataSource;
 	}
