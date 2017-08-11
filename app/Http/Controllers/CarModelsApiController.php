@@ -33,6 +33,9 @@ class CarModelsApiController extends Controller
 			$filters['MaxPrice'] = $maxPrice;	
 		}
 
+		if($minPrice = request()->get('minprice')) {
+			$filters['MinPrice'] = $minPrice;	
+		}
 
 		$carModelsCollection = $this->carModelsRepository
 					->getAllCarModelsByFilters($filters);

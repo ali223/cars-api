@@ -35,6 +35,17 @@ class CarModelFilters
 		return $this->filterCars($carModelsCollection, $maxPrice, $filterCarsFunction);
 	}
 
+	public function filterByMinPrice(Collection $carModelsCollection, $minPrice)
+	{
+		$filterCarsFunction = function ($car) use ($minPrice) {
+					
+			return $car->getPrice() >= $minPrice;
+		};	
+
+		return $this->filterCars($carModelsCollection, $minPrice, $filterCarsFunction);
+	}
+
+
 
 	private function filterCars(Collection $carModelsCollection, $data, Closure $filterCarsFunction)
 	{
