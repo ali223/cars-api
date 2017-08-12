@@ -50,6 +50,27 @@ class CarModelFilters
 		return $this->filterCars($carModelsCollection, $filterCarsFunction);
 	}
 
+	public function filterByMaxMileage(Collection $carModelsCollection, $maxMileage)
+	{
+		$filterCarsFunction = function ($car) use ($maxMileage) {
+					
+			return $car->getMileage() <= $maxMileage;
+		};	
+
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
+	}
+
+	public function filterByMinMileage(Collection $carModelsCollection, $minMileage)
+	{
+		$filterCarsFunction = function ($car) use ($minMileage) {
+					
+			return $car->getMileage() >= $minMileage;
+		};	
+
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
+	}
+
+
 	public function filterByOwners(Collection $carModelsCollection, $owners)
 	{
 		$filterCarsFunction = function ($car) use ($owners) {
