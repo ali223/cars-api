@@ -31,9 +31,9 @@ class CarModelsJsonRepository implements CarModelsRepositoryInterface
 
 		foreach($filters as $filterType => $filterData) {
 
-			$filterName = "filterBy{$filterType}";
+			$filterMethodName = "filterBy{$filterType}";
 
-			$filteredCollection = $this->carModelFilters->$filterName($filteredCollection, $filterData);
+			$filteredCollection = $this->carModelFilters->$filterMethodName($filteredCollection, $filterData);
 		}
 
 		return $filteredCollection;

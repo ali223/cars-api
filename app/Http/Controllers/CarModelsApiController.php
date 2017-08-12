@@ -34,25 +34,19 @@ class CarModelsApiController extends Controller
 
     private function createFilters()
     {
-    	$filters = [];
+    	$filterNames = collect(['FuelType', 'Transmission', 'MaxPrice', 'MinPrice']);
 
-		if($fuelType = request()->get('fueltype')) {
-			$filters['FuelType'] = $fuelType;
-		}
+    	$filterMap = [];
 
-		if($transmission = request()->get('transmission')) {
-			$filters['Transmission'] = $transmission;	
-		}
+    	$filterNames->each( function ($filterName) use(&$filterMap) {
 
-		if($maxPrice = request()->get('maxprice')) {
-			$filters['MaxPrice'] = $maxPrice;	
-		}
+    		if(request()->has(strtolower($filterName))) {
+    			$filterMap[$filterName] = request()->input(strtolower($filterName));
+    			
+    		}
+    	});
 
-		if($minPrice = request()->get('minprice')) {
-			$filters['MinPrice'] = $minPrice;	
-		}
-
-		return $filters;
+    	return $filterMap;
 
     }
 }

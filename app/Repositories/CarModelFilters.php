@@ -60,7 +60,9 @@ class CarModelFilters
 				}
 
 				$carModel->setCars($filteredCars);		
+				
 				return $carModel;
+
 		})->filter()->values();
 
 	}
