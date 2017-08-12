@@ -6,6 +6,6 @@ interface CarModelsRepositoryInterface
 {
 	public function getAllCarModels();
 
-	public function getAllCarModelsByFilters();
+	public function getAllCarModelsByFilters($filters = []);
 }
 
