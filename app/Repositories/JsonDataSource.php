@@ -41,7 +41,7 @@ class JsonDataSource implements DataSourceInterface
 			$carModel->setEngineSize($object->engineSize);
 			$carModel->setFuelType($object->fuelType);				
 
-			$cars = $this->transformDataIntoCarsCollection($object->cars);
+			$cars = $this->transformDataIntoCarsCollection($object->modelId, $object->cars);
 
 			$carModel->setCars($cars);
 
@@ -51,14 +51,14 @@ class JsonDataSource implements DataSourceInterface
 		return collect($carModels);
 	}
 
-	private function transformDataIntoCarsCollection($carsData)
+	private function transformDataIntoCarsCollection($modelId, $carsData)
 	{
 		$cars = [];
 
 		foreach($carsData as $object) {
 			$car = new Car();
 			$car->setId($object->id);
-			$car->setModelId($object->modelId);
+			$car->setModelId($modelId);
 			$car->setMileage($object->mileage);
 			$car->setRegistration($object->registration);
 			$car->setTransmission($object->transmission);

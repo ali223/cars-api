@@ -110,7 +110,6 @@ class Car implements JsonSerializable
 	{
 		return [
 			'id' => $this->getId(),
-			'modelId' => $this->getModelId(),
 			'mileage' => $this->getMileage(),
 			'registration' => $this->getRegistration(),
 			'transmission' => $this->getTransmission(),
