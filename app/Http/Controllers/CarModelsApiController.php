@@ -34,7 +34,7 @@ class CarModelsApiController extends Controller
 
     private function createFilters()
     {
-    	$filterNames = collect(['FuelType', 'Transmission', 'MaxPrice', 'MinPrice']);
+    	$filterNames = collect(['FuelType', 'Transmission', 'MaxPrice', 'MinPrice', 'Owners']);
 
     	$filterMap = [];
 

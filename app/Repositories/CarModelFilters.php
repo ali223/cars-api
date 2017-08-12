@@ -45,6 +45,15 @@ class CarModelFilters
 		return $this->filterCars($carModelsCollection, $minPrice, $filterCarsFunction);
 	}
 
+	public function filterByOwners(Collection $carModelsCollection, $owners)
+	{
+		$filterCarsFunction = function ($car) use ($owners) {
+					
+			return $car->getOwners() == $owners;
+		};	
+
+		return $this->filterCars($carModelsCollection, $owners, $filterCarsFunction);
+	}
 
 
 	private function filterCars(Collection $carModelsCollection, $data, Closure $filterCarsFunction)
