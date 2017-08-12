@@ -9,10 +9,15 @@ class CarModelFilters
 {
 	public function filterByFuelType(Collection $carModelsCollection, $fuelType)
 	{
+		
 		return $carModelsCollection->filter(
+
 			function ($carModel) use ($fuelType){
+
 				return strtolower($carModel->getFuelType()) == strtolower($fuelType);
+
 		})->values();
+
 	} 
 
 	public function filterByTransmission(Collection $carModelsCollection, $transmission)
@@ -22,7 +27,7 @@ class CarModelFilters
 			return strtolower($car->getTransmission()) == strtolower($transmission);
 		};	
 
-		return $this->filterCars($carModelsCollection, $transmission, $filterCarsFunction);
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
 	}
 
 	public function filterByMaxPrice(Collection $carModelsCollection, $maxPrice)
@@ -32,7 +37,7 @@ class CarModelFilters
 			return $car->getPrice() <= $maxPrice;
 		};	
 
-		return $this->filterCars($carModelsCollection, $maxPrice, $filterCarsFunction);
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
 	}
 
 	public function filterByMinPrice(Collection $carModelsCollection, $minPrice)
@@ -42,7 +47,7 @@ class CarModelFilters
 			return $car->getPrice() >= $minPrice;
 		};	
 
-		return $this->filterCars($carModelsCollection, $minPrice, $filterCarsFunction);
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
 	}
 
 	public function filterByOwners(Collection $carModelsCollection, $owners)
@@ -52,19 +57,20 @@ class CarModelFilters
 			return $car->getOwners() == $owners;
 		};	
 
-		return $this->filterCars($carModelsCollection, $owners, $filterCarsFunction);
+		return $this->filterCars($carModelsCollection, $filterCarsFunction);
 	}
 
 
-	private function filterCars(Collection $carModelsCollection, $data, Closure $filterCarsFunction)
+	private function filterCars(Collection $carModelsCollection, Closure $filterCarsFunction)
 	{
 		
 		return $carModelsCollection->map(
-			function ($carModel, $key) use ($data, $filterCarsFunction){
+
+			function ($carModel) use ($filterCarsFunction){
 
 				$filteredCars = $carModel->getCars()->filter($filterCarsFunction);
 
-				if(!$filteredCars->count()) {
+				if (!$filteredCars->count()) {
 					return;
 				}
 
