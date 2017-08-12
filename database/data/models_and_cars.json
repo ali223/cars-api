@@ -8,8 +8,7 @@
     "fuelType": "Petrol",
     "cars": [
         {
-          "id": "00000001",
-          "modelId": "ac5c3b18-6804-4e34-ac19-cf3d693f5cdf",
+          "id": "00000001",          
           "mileage": 25000,
           "registration": "PS128DE",
           "transmission": "Manual",
@@ -34,7 +33,6 @@
     "cars": [
         {
           "id": "00000002",
-          "modelId": "7ee87de1-a30f-4666-9741-726c9facbba7",
           "mileage": 95000,
           "registration": "LS05DTR",
           "transmission": "Manual",
@@ -60,7 +58,6 @@
     "cars": [
        {
           "id": "00000003",
-          "modelId": "5905c84b-4a70-47c9-be56-e814553b3015",
           "mileage": 12000,
           "registration": "LD58UBQ",
           "transmission": "Manual",
@@ -75,7 +72,6 @@
         },
         {
           "id": "00000004",
-          "modelId": "5905c84b-4a70-47c9-be56-e814553b3015",
           "mileage": 45000,
           "registration": "LD58UBQ",
           "transmission": "Automatic",
