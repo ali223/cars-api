@@ -2,6 +2,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
+                <div class="alert alert-success" v-if="message">
+                    {{message}}
+                </div>
+
                 <div class="alert alert-danger" v-if="isError">
                     {{errorMessage}}
                 </div>
@@ -73,7 +77,8 @@
                 fuelType: '',
                 transmission: '',
                 isError: false,
-                errorMessage: ''
+                errorMessage: '',
+                message: ''
             }
         },
 
@@ -87,10 +92,14 @@
                         this.carModelsData = response.data;  
                         this.isError = false;
                         this.errorMessage = '';         
+                        this.message = 'Filters Applied!';
+                        setTimeout(() => this.message = '', 3000);
+
                     }).catch( error => {
                         this.carModelsData = '';
                         this.isError = true;
                         this.errorMessage = "No Records Found";
+                        this.message = '';
                     });
             }
         },
